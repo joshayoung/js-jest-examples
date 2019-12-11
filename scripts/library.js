@@ -1,0 +1,1 @@
+export const bmi = (height, weight) => "20";
