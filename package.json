@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/joshayoung/js-jest-examples/issues"
   },
-  "homepage": "https://github.com/joshayoung/js-jest-examples#readme"
+  "homepage": "https://github.com/joshayoung/js-jest-examples#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
 }
