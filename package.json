@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/joshayoung/js-jest-examples#readme",
   "dependencies": {
+    "@babel/runtime": "^7.7.6",
     "jest": "^24.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.6",
     "@babel/register": "^7.7.4",
     "babel-loader": "^8.0.6",
