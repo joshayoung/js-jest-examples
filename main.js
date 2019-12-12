@@ -6,5 +6,6 @@ let measurements = new Measurements();
 
 document.addEventListener("DOMContentLoaded", function () {
   example.load();
+  example.data();
   measurements.display();
 });

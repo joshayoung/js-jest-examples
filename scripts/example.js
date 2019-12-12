@@ -14,16 +14,23 @@ export default class Example {
     }).then(response => response.json());
   };
 
-  populate(data) {
+  populate(data, elem) {
     let all = "";
     data.forEach(element => {
       all += "<li>" + element.name + "</li>";
     });
-    document.getElementById('data').innerHTML = "<ul>" + all + "</ul>";
+    document.getElementById(elem).innerHTML = "<ul>" + all + "</ul>";
   }
 
   async load() {
     let data = await this.getData('https://api.github.com/users/joshayoung/repos');
-    this.populate(data);
+    this.populate(data, 'data');
+  }
+
+  data() {
+    let prom = this.getData('https://api.github.com/users/joshayoung/repos');
+    prom.then(res => {
+      this.populate(res, 'results');
+    });
   }
 };

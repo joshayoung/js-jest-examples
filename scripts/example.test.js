@@ -7,9 +7,12 @@ describe('Example', () => {
   `;
 
   global.fetch = jest.fn(() => Promise.resolve({
-    'json': jest.fn(cb => [
-      { 'name': "repo1" },
-      { 'name': "repo2" }
+    'json': jest.fn(cb => [{
+        'name': "repo1"
+      },
+      {
+        'name': "repo2"
+      }
     ])
   }));
 
@@ -25,5 +28,15 @@ describe('Example', () => {
       let structure = "<ul><li>repo1</li><li>repo2</li></ul>";
       expect(html).toBe(structure)
     });
-  })
+  });
+
+  describe('#data', () => {
+    it('populates the repo data on the page', async () => {
+      let example = new Example();
+      let data = example.data();
+      let html = document.getElementById("data").innerHTML;
+      let structure = "<ul><li>repo1</li><li>repo2</li></ul>";
+      expect(html).toBe(structure)
+    });
+  });
 });
