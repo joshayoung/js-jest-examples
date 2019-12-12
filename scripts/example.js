@@ -11,9 +11,7 @@ export default class Example {
       headers: {
         'Authorization': 'token ' + token
       },
-    }).then((response) => {
-      return response.json();
-    });
+    }).then(response => response.json());
   };
 
   populate(data) {
