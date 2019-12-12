@@ -1,5 +1,5 @@
 export default class Example {
-  constructor() { }
+  constructor() {}
 
   test() {
     return "test";
@@ -7,16 +7,25 @@ export default class Example {
 
   getData(url) {
     let token = window.localStorage.getItem('token');
-    return fetch(url
-    , {headers: {'Authorization': 'token ' + token},}
-    ).then((response) => {
+    return fetch(url, {
+      headers: {
+        'Authorization': 'token ' + token
+      },
+    }).then((response) => {
       return response.json();
-    }
-    );
+    });
   };
 
-  load() {
-    let data = this.getData('https://api.github.com/users/joshayoung/repos')
-    document.getElementById('data').innerHTML = data;
+  populate(data) {
+    let all = "";
+    data.forEach(element => {
+      all += "<li>" + element.name + "</li>";
+    });
+    document.getElementById('data').innerHTML = "<ul>" + all + "</ul>";
+  }
+
+  async load() {
+    let data = await this.getData('https://api.github.com/users/joshayoung/repos');
+    this.populate(data);
   }
 };
