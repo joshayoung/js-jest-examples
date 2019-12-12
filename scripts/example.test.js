@@ -1,7 +1,7 @@
 import Example from "./example"
 import * as library from "./library"
 
-describe('Tests', () => {
+describe('Example', () => {
   document.body.innerHTML = `
     <div id="data"></div>
   `;
@@ -13,18 +13,17 @@ describe('Tests', () => {
     ])
   }));
 
-  test('returns the correct value', () => {
-    let example = new Example();
-    expect(example.test()).toBe("test");
-  });
-
-  test('bmi works', () => {
+  it('bmi works', () => {
     expect(library.bmi(1, 2)).toBe("20");
   });
 
-  test('the load function', async () => {
-    let example = new Example();
-    let data = await example.load();
-    expect(document.getElementById("data").innerHTML).toBe("<ul><li>repo1</li><li>repo2</li></ul>")
-  });
-})
+  describe('#load', () => {
+    it('populates the repo data on the page', async () => {
+      let example = new Example();
+      let data = await example.load();
+      let html = document.getElementById("data").innerHTML;
+      let structure = "<ul><li>repo1</li><li>repo2</li></ul>";
+      expect(html).toBe(structure)
+    });
+  })
+});
