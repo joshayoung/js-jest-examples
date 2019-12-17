@@ -6,12 +6,16 @@ export default class Example {
   }
 
   getData(url) {
-    let token = window.localStorage.getItem('token');
-    return fetch(url, {
-      headers: {
-        'Authorization': 'token ' + token
-      },
-    }).then(response => response.json());
+    try {
+      let token = window.localStorage.getItem('token');
+      return fetch(url, {
+        headers: {
+          'Authorization': 'token ' + token
+        },
+      }).then(response => response.json());
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   populate(data, elem) {
@@ -27,10 +31,18 @@ export default class Example {
     this.populate(data, 'data');
   }
 
-  data() {
+  data(callback) {
     let prom = this.getData('https://api.github.com/users/joshayoung/repos');
     prom.then(res => {
-      this.populate(res, 'results');
+      callback(res, 'results');
     });
+  }
+
+  myPromise() {
+    return Promise.resolve("Yay!");
+  }
+
+  noPromise() {
+    return Promise.reject("No!");
   }
 };

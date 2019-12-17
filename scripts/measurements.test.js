@@ -7,4 +7,15 @@ describe('Measurements', () => {
       expect(measurements.bmi(1, 2)).toBe("20");
     });
   });
+
+  describe('#bmi with mock', () => {
+    let measurements = new Measurements();
+    let spy = jest.spyOn(measurements, 'bmi').mockImplementation(() => '10');
+
+    let result = measurements.bmi(1, 2);
+
+    expect(result).toBe("10");
+    expect(spy).toHaveBeenCalled();
+    expect(spy).toBeCalledWith(1, 2);
+  });
 });
