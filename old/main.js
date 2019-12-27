@@ -1,5 +1,5 @@
-import Example from "./scripts/example.js"
-import Measurements from "./scripts/measurements";
+import Example from "./example.js"
+import Measurements from "./measurements";
 
 let example = new Example();
 let measurements = new Measurements();
