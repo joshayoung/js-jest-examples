@@ -14,7 +14,7 @@ describe('Data', () => {
           done();
         }
 
-        this.getData(callback);
+        data.getData(callback);
       });
   });
 });

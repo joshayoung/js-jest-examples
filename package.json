@@ -20,7 +20,8 @@
   "homepage": "https://github.com/joshayoung/js-jest-examples#readme",
   "dependencies": {
     "@babel/runtime": "^7.7.6",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
