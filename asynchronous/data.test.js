@@ -25,4 +25,12 @@ describe('Data', () => {
       });
     });
   });
+
+  describe('#rejectPromise', () => {
+    it('is rejected', () => {
+      // expect.assertions(1);
+      // return data.rejectPromise().catch(e => expect(e).toMatch('an error'));
+      return expect(data.rejectPromise()).rejects.toMatch('an error');
+    });
+  });
 });

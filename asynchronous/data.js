@@ -25,5 +25,9 @@ export default class Data {
       return myJson;
     });
   }
+
+  rejectPromise() {
+    return Promise.reject('an error');
+  }
 }
   
