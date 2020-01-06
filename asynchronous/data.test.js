@@ -8,9 +8,9 @@ describe('Data', () => {
   });
 
   describe('#getData', () => {
-    it('calls the callback', () => {
+    it('calls the callback', done => {
         function callback(data) {
-          expect(data).toBe('test');
+          expect(data.slip.advice).toBe('Remember that spiders are more afraid of you, than you are of them.');
           done();
         }
 

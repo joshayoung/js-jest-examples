@@ -1,14 +1,19 @@
-export default class Data {
-    constructor() { }
+import { fetch } from "whatwg-fetch";
 
-    getData(cb) {
-        fetch('https://cat-fact.herokuapp.com/facts')
-        .then((response) => {
-            cb(response.json());
-        })
-        .then((myJson) => {
-            console.log(myJson);
-        });
+export default class Data {
+  constructor() { }
+
+  getData(cb) {
+    try {
+      fetch('https://api.adviceslip.com/advice/1')
+      .then((response) => {
+          return response.json();
+      })
+      .then((myJson) => {
+          cb(myJson);
+      });
+    } catch(e) {
     }
   }
+}
   
