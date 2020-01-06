@@ -13,4 +13,7 @@ function addTo(data) {
 
 document.addEventListener("DOMContentLoaded", function () {
   data.getData(cb);
+  data.getPromise().then(data => {
+    document.write(data);
+  });
 });

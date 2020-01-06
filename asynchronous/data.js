@@ -15,5 +15,15 @@ export default class Data {
     } catch(e) {
     }
   }
+
+  getPromise() {
+    return fetch('https://api.adviceslip.com/advice/1')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      return myJson;
+    });
+  }
 }
   
