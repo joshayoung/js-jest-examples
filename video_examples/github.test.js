@@ -1,4 +1,4 @@
-const getData = require('./sandbox')
+const getData = require('./github')
 
 it('calls github.com correctly', () => {
   const fakeProcess = { env: { TOKEN: 123 } }

@@ -9,10 +9,4 @@ function getData(fetch, process) {
     .then(data => data[0].id)
 }
 
-const result = getData(fetch, process);
-
-// result.then(dt => {
-//     console.log(dt);
-// })
-
 module.exports = getData;
