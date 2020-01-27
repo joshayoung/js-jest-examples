@@ -1,4 +1,4 @@
-const getData = require('../video_examples/github');
+const getData = require('./github');
 const fetch = require('node-fetch')
 
 const result = getData(fetch, process);
