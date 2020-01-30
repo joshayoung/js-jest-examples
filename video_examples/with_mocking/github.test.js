@@ -1,28 +1,30 @@
 const getData = require("./github");
+const fetch = require("node-fetch");
+jest.mock("node-fetch", () => jest.fn());
 
 it("calls github.com correctly", () => {
+  beforeAll(() => {});
   process.env.TOKEN = "123";
 
   let mockResponse = [
     {
-      id: 1
+      id: 2
     }
   ];
-
-  window.fetch = jest.fn().mockImplementation(() => {
-    return Promise.resolve({
+  fetch.mockImplementationOnce(() =>
+    Promise.resolve({
       ok: true,
       json: () => Promise.resolve(mockResponse)
-    });
-  });
+    })
+  );
 
   return getData().then(result => {
-    expect(window.fetch).toHaveBeenCalledWith(
+    expect(fetch).toHaveBeenCalledWith(
       "https://api.github.com/users/joshayoung/repos",
       {
         headers: { Authorization: "token 123" }
       }
     );
-    expect(result).toBe(1);
+    expect(result).toBe(2);
   });
 });

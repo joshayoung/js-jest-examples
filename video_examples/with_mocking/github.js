@@ -2,10 +2,9 @@ require("dotenv").config();
 const fetch = require("node-fetch");
 
 function getData() {
-  return window
-    .fetch("https://api.github.com/users/joshayoung/repos", {
-      headers: { Authorization: "token " + process.env.TOKEN }
-    })
+  return fetch("https://api.github.com/users/joshayoung/repos", {
+    headers: { Authorization: "token " + process.env.TOKEN }
+  })
     .then(response => {
       return response.json();
     })
